@@ -33,6 +33,7 @@ export default {
 <style lang="scss" scoped>
 .select-wrapper {
   position: relative;
+
   &::after {
     content: "";
     width: 8px;
@@ -43,6 +44,10 @@ export default {
     top: 50%;
     right: 16px;
     transform: translateY(-50%);
+
+    @media screen and (max-width: 599px) {
+      right: 10px;
+    }
   }
 
   .FilterDropdown {
@@ -61,6 +66,11 @@ export default {
     &:focus {
       outline: none;
       box-shadow: 0 2px 15px 0 lightgray;
+    }
+
+    @media screen and (max-width: 599px) {
+      padding: 6px 20px 6px 10px;
+      font-size: 10px;
     }
   }
 }

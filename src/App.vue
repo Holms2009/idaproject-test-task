@@ -58,30 +58,6 @@ export default {
                 "https://cdnimg.rg.ru/img/content/157/34/81/Piramida_Heopsa_d_850.jpg",
               price: 20304070,
             },
-            {
-              title: "Статуя свободы",
-              description:
-                "Символ свободы! Ещё и из меди! Правда, слегка позеленела от коррозии. Зато стоит на труднодоступном острове и вряд ли кто-то оттуда её украдет. Хотя и вам до неё будет не так просто добраться...",
-              image:
-                "https://prousa.info/images/cities/statue_of_liberty/statue_of_liberty.webp",
-              price: 999999999,
-            },
-            {
-              title: "Эйфелева башня",
-              description:
-                "Прекрасный вид на Елисейские поля и Сену. Красивая подсветка по ночам. В комплект входит ресторан и лифт.",
-              image:
-                "https://static.toiimg.com/thumb/msid-53891743,width-748,height-499,resizemode=4,imgsize-152022/.jpg",
-              price: 1000000000,
-            },
-            {
-              title: "Пирамида Хеопса",
-              description:
-                "Настоящий раритет. Антиквариат. Стоит уже почти 3000 лет и простоит ещё столько же. К сожалению, наружное покрытие давно растащили. В качестве утешения вы получите Сфинкса в подарок (без носа).",
-              image:
-                "https://cdnimg.rg.ru/img/content/157/34/81/Piramida_Heopsa_d_850.jpg",
-              price: 20304070,
-            },
           ],
     };
   },
@@ -156,16 +132,38 @@ export default {
       font-size: 28px;
       font-weight: 600;
       line-height: 35px;
+
+      @media screen and (max-width: 599px) {
+        font-size: 22px;
+        line-height: 28px;
+      }
     }
   }
 
   .main {
     display: flex;
 
+    @media screen and (max-width: 599px) {
+      flex-direction: column;
+    }
+
     .side-panel {
       margin-right: calc(100vw * (16 / 1440));
       min-width: calc(100vw * (332 / 1440));
       height: fit-content;
+
+      @media screen and (max-width: 1024px) {
+        min-width: calc(100vw * (280 / 1024));
+      }
+
+      @media screen and (max-width: 767px) {
+        min-width: calc(100vw * (300 / 768));
+      }
+
+      @media screen and (max-width: 599px) {
+        margin-bottom: 20px;
+        width: 100%;
+      }
     }
 
     .products {
@@ -173,6 +171,18 @@ export default {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 16px;
+
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media screen and (max-width: 767px) {
+        grid-template-columns: 1fr;
+      }
+
+      @media screen and (max-width: 599px) {
+        width: 100%;
+      }
     }
   }
 }

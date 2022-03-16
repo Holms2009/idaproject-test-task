@@ -31,11 +31,6 @@ export default {
   transition: transform 0.3s ease;
   animation: showUp 0.5s ease;
 
-  @media screen and (max-width: 1439px) {
-    width: calc(100vw * (232 / 1024));
-    min-height: calc(100vw * (296 / 1024));
-  }
-
   &:hover {
     transform: translateY(-3px);
 
@@ -57,6 +52,7 @@ export default {
     width: 100%;
     height: calc(100vw * (200 / 1440));
     position: absolute;
+    border-radius: 4px 4px 0 0;
     top: 0;
     left: 0;
     object-fit: cover;
@@ -83,6 +79,51 @@ export default {
 
     &:hover {
       transform: translateY(-2px);
+    }
+  }
+
+  @media screen and (max-width: 1439px) {
+    width: calc(100vw * (232 / 1024));
+    min-height: calc(100vw * (296 / 1024));
+  }
+
+  @media screen and (max-width: 1024px) {
+    padding-top: calc(100vw * (216 / 1024));
+    width: auto;
+    min-height: calc(100vw * (423 / 1024));
+
+    .title {
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 25px;
+    }
+
+    .image {
+      height: calc(100vw * (200 / 1024));
+    }
+
+    .description {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-top: calc(100vw * (216 / 768));
+    min-height: calc(100vw * (423 / 768));
+
+    .image {
+      height: calc(100vw * (200 / 768));
+    }
+  }
+
+  @media screen and (max-width: 599px) {
+    padding-top: calc(100vw * (216 / 599));
+    min-height: calc(100vw * (423 / 599));
+
+    .image {
+      height: calc(100vw * (200 / 599));
     }
   }
 }
