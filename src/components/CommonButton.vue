@@ -28,7 +28,6 @@ export default {
   }
 
   &.blocked {
-    pointer-events: none;
     background-color: #eeeeee;
     color: #b4b4b4;
   }

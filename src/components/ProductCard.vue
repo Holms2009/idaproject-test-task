@@ -3,7 +3,8 @@
     <h2 class="title">{{ cardTemplate.title }}</h2>
     <img class="image" :src="cardTemplate.image" alt="Фото товара" />
     <p class="description">{{ cardTemplate.description }}</p>
-    <span class="price">{{ cardTemplate.price }} руб.</span>
+    <span class="price">{{ cardTemplate.price.toLocaleString() }} руб.</span>
+    <span class="remove" @click="$emit('remove-card', cardTemplate)"></span>
   </div>
 </template>
 
@@ -25,13 +26,24 @@ export default {
   background-color: #ffffffcc;
   border-radius: 4px;
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.04);
-  overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
+  animation: showUp 0.5s ease;
+
+  @media screen and (max-width: 1439px) {
+    width: calc(100vw * (232 / 1024));
+    min-height: calc(100vw * (296 / 1024));
+  }
 
   &:hover {
     transform: translateY(-3px);
+
+    .remove {
+      opacity: 1;
+      pointer-events: all;
+      cursor: pointer;
+    }
   }
 
   .title {
@@ -55,6 +67,32 @@ export default {
     font-size: 24px;
     font-weight: 600;
     line-height: 30px;
+  }
+
+  .remove {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: url("../assets/images/remove.svg") no-repeat 50% 50%, #ff8484;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@keyframes showUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 </style>
